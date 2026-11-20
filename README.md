@@ -48,7 +48,7 @@ I use this space to document technical projects, database solutions, SQL impleme
 ### Connect With Me
 
 - LinkedIn: [www.linkedin.com/in/danieliyiola80]
-- GitHub: []
+- GitHub: [https://github.com/0dogwu]
 
 ---
 
