@@ -17,7 +17,9 @@ USE business_operations;
 
 -- 2. Create the employees table
 
-CREATE TABLE IF NOT EXISTS employees (
+DROP TABLE IF EXISTS employees;
+
+CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -27,7 +29,6 @@ CREATE TABLE IF NOT EXISTS employees (
     employment_status VARCHAR(20),
     hire_date DATE
 );
-
 
 -- 3. Insert sample business records
 
@@ -53,7 +54,6 @@ VALUES
 (109, 'Noah', 'Martin', NULL, 'Operations Assistant', 250000, 'Active', '2024-04-08'),
 (110, 'Sophia', 'Clark', 'Human Resources', 'Recruitment Officer', 290000, 'Inactive', '2022-12-01');
 
-
 -- 4. Retrieve all employee records
 
 SELECT *
@@ -66,6 +66,7 @@ SELECT
     employee_id,
     CONCAT(first_name, ' ', last_name) AS employee_name,
     department,
+    job_title,
     salary AS monthly_salary
 FROM employees;
 
@@ -85,14 +86,12 @@ WHERE department = 'Technology'
   AND employment_status = 'Active';
 
 
--- 8. Filter using BETWEEN
+-- 8. Filter employees by salary range
 
 SELECT *
 FROM employees
 WHERE salary BETWEEN 300000 AND 450000;
-
-
--- 9. Filter using IN
+-- 9. Filter records using IN
 
 SELECT *
 FROM employees
@@ -126,21 +125,26 @@ SELECT DISTINCT department
 FROM employees;
 
 
--- 14. Sort records by salary in descending order
+-- 14. Sort employees by salary from highest to lowest
 
 SELECT *
 FROM employees
 ORDER BY salary DESC;
+-- 15. Retrieve the first three records
+
+SELECT *
+FROM employees
+LIMIT 3;
 
 
--- 15. Sort by multiple columns
+-- 16. Sort records by multiple columns
 
 SELECT *
 FROM employees
 ORDER BY department ASC, salary DESC;
 
 
--- 16. Retrieve the five highest-paid employees
+-- 17. Retrieve the five highest-paid employees
 
 SELECT
     employee_id,
@@ -153,20 +157,20 @@ ORDER BY salary DESC
 LIMIT 5;
 
 
--- 17. Calculate annual salary
+-- 18. Calculate annual salary
 
 SELECT
     employee_id,
     CONCAT(first_name, ' ', last_name) AS employee_name,
+    department,
     salary AS monthly_salary,
     salary * 12 AS annual_salary
 FROM employees;
-
-
--- 18. Aggregate employee salary information
+-- 19. Aggregate employee salary information
 
 SELECT
     COUNT(*) AS total_employees,
+    COUNT(DISTINCT department) AS total_departments,
     ROUND(AVG(salary), 2) AS average_salary,
     MAX(salary) AS highest_salary,
     MIN(salary) AS lowest_salary,
@@ -174,7 +178,7 @@ SELECT
 FROM employees;
 
 
--- 19. Count employees by department
+-- 20. Count employees by department
 
 SELECT
     department,
@@ -184,7 +188,20 @@ GROUP BY department
 ORDER BY employee_count DESC;
 
 
--- 20. Filter grouped results using HAVING
+-- 21. Calculate salary statistics by department
+
+SELECT
+    department,
+    COUNT(*) AS employee_count,
+    ROUND(AVG(salary), 2) AS average_salary,
+    SUM(salary) AS department_payroll
+FROM employees
+WHERE department IS NOT NULL
+GROUP BY department
+ORDER BY department_payroll DESC;
+
+
+-- 22. Filter grouped results using HAVING
 
 SELECT
     department,
