@@ -41,15 +41,39 @@ My technical interests include relational database systems, query optimization, 
 - Data Analytics
 - Business Intelligence
 
+
 ### Projects
 
-I use this space to document technical projects, database solutions, SQL implementations and practical applications of data management concepts.
+I have developed practical SQL projects using MySQL to demonstrate database development, relational data management, data querying, and analysis.
 
-### Connect With Me
+#### 1. SQL Fundamentals & Employee Data Analysis
 
-- LinkedIn: [www.linkedin.com/in/danieliyiola80]
-- GitHub: [https://github.com/0dogwu]
+A practical employee database project focused on retrieving, filtering, sorting, transforming, and analysing structured business data.
 
----
+**Key concepts:**
+- Database and table creation
+- SELECT statements and filtering
+- Aggregate functions
+- GROUP BY and HAVING
+- Data sorting and analysis
 
-**Building reliable data solutions through structured thinking and technical excellence.**
+**Project files:**
+- [Project Documentation](./01-sql-fundamentals/README.md)
+- [SQL Script](./01-sql-fundamentals/01-select-filter-sort.sql)
+
+#### 2. Customer Orders & Relational Data Analysis
+
+A relational database project involving four interconnected tables: customers, products, orders, and order items.
+
+**Key concepts:**
+- Relational database design
+- Primary and foreign keys
+- Database constraints
+- Multi-table INNER JOIN
+- LEFT JOIN
+- Common Table Expressions (CTEs)
+- Customer purchase analysis
+
+**Project files:**
+- [Project Documentation](./02-joins-relational-analysis/README.md)
+- [SQL Script](./02-joins-relational-analysis/02-relational-sales-analysis.sql)
