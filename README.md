@@ -7,6 +7,10 @@ I am a data professional focused on database development, SQL-driven data manage
 
 My technical interests include relational database systems, query optimization, database design, data manipulation, and transforming raw data into meaningful information.
 
+## My SQL Portfolio
+
+[View My SQL Portfolio (PDF)](./Iyiola_Daniel_Ogooluwa_SQL_Portfolio_Final.pdf)
+
 ### Technical Skills
 
 - SQL
